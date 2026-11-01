@@ -13,6 +13,15 @@ jobs:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Set up JDK 17
+        uses: actions/setup-java@3a4f6e1af504cf6a31855fa899c6aa5355ba6c12 # v4.7.1
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Compile sources
+        run: |
+          mkdir -p gestion_bib/out/production/gestion_bib
+          javac -encoding UTF-8 -d gestion_bib/out/production/gestion_bib gestion_bib/src/*.java
       - name: Cache SonarQube packages
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
@@ -21,5 +30,8 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@4d1dc0c91ee400dcf8a6dddf2f705ac36542e304 # v8.4.0
+        with:
+          projectBaseDir: gestion_bib
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io

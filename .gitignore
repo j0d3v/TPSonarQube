@@ -1,0 +1,11 @@
+# Java build output
+out/
+build/
+target/
+*.class
+
+# IntelliJ
+.idea/
+
+# Sonar scanner working dir
+.scannerwork/

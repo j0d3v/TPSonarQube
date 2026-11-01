@@ -1,17 +1,14 @@
-// Classe représentant un livre classique
 class Book implements Lendable {
     private String title;
     private String author;
     private boolean borrowed;
 
-    // Constructeur
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
         this.borrowed = false;
     }
 
-    // Méthodes de l'interface
     @Override
     public void borrow() {
         if (!borrowed) {
@@ -30,7 +27,6 @@ class Book implements Lendable {
         }
     }
 
-    // Getters
     public String getTitle() { return title; }
     public String getAuthor() { return author; }
     public boolean isBorrowed() { return borrowed; }
