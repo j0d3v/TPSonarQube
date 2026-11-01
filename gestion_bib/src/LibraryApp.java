@@ -13,7 +13,6 @@ public class LibraryApp {
         System.out.println("List of Books in the Library:");
         library.listAllItems();
 
-        // Méthodes pour TP SonarQube
         book1.complexMethodExample(10);
     }
 }

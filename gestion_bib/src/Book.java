@@ -11,36 +11,46 @@ class Book implements Lendable {
 
     @Override
     public void borrow() {
-        if (!borrowed) {
-            borrowed = true;
-        } else {
+        if (borrowed) {
             System.out.println("This book is already borrowed.");
+            return;
         }
+        borrowed = true;
     }
 
     @Override
     public void returnItem() {
-        if (borrowed) {
-            borrowed = false;
-        } else {
+        if (!borrowed) {
             System.out.println("This book was not borrowed.");
+            return;
         }
+        borrowed = false;
     }
 
     public String getTitle() { return title; }
     public String getAuthor() { return author; }
+
+    @Override
     public boolean isBorrowed() { return borrowed; }
 
-    // Méthode volontairement complexe pour le TP
+    @Override
+    public String describe() {
+        return title + " by " + author;
+    }
+
     public void complexMethodExample(int n) {
         for (int i = 0; i < n; i++) {
-            if (i % 2 == 0) {
-                System.out.println(i + " is even");
-            } else if (i % 3 == 0) {
-                System.out.println(i + " divisible by 3");
-            } else {
-                System.out.println(i + " something else");
-            }
+            System.out.println(i + " " + classify(i));
         }
+    }
+
+    private String classify(int i) {
+        if (i % 2 == 0) {
+            return "is even";
+        }
+        if (i % 3 == 0) {
+            return "divisible by 3";
+        }
+        return "something else";
     }
 }

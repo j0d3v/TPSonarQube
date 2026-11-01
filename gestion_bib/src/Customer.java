@@ -10,6 +10,10 @@ class Customer {
         checkedOutItems = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void checkOutItem(Lendable item) {
         if (!checkedOutItems.contains(item)) {
             checkedOutItems.add(item);
