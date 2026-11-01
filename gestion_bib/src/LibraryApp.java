@@ -13,6 +13,6 @@ public class LibraryApp {
         System.out.println("List of Books in the Library:");
         library.listAllItems();
 
-        book1.complexMethodExample(10);
+        new NumberClassifier().printClassifications(10);
     }
 }

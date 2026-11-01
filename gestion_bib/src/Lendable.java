@@ -3,4 +3,8 @@ interface Lendable {
     void returnItem();
     boolean isBorrowed();
     String describe();
+
+    default boolean isAvailable() {
+        return !isBorrowed();
+    }
 }

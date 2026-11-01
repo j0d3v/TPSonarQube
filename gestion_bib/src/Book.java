@@ -37,20 +37,4 @@ class Book implements Lendable {
     public String describe() {
         return title + " by " + author;
     }
-
-    public void complexMethodExample(int n) {
-        for (int i = 0; i < n; i++) {
-            System.out.println(i + " " + classify(i));
-        }
-    }
-
-    private String classify(int i) {
-        if (i % 2 == 0) {
-            return "is even";
-        }
-        if (i % 3 == 0) {
-            return "divisible by 3";
-        }
-        return "something else";
-    }
 }

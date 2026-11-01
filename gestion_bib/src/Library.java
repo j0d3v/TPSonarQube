@@ -17,12 +17,10 @@ class Library {
     }
 
     public List<Lendable> getAvailableItems() {
-        return items.stream()
-                .filter(item -> !item.isBorrowed())
-                .toList();
+        return items.stream().filter(Lendable::isAvailable).toList();
     }
 
     public void listAllItems() {
-        items.forEach(item -> System.out.println(item.describe()));
+        items.stream().map(Lendable::describe).forEach(System.out::println);
     }
 }
